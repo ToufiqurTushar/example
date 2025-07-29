@@ -97,22 +97,22 @@ class CattleListView extends RapidView<CattleListLogic> {
                 );
               },
               itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-                _buildPopupMenuItem(
+                PopupMenuItemWidget(
                   value: 'Add Cattle from Excel',
                   icon: Icons.folder_open, // Changed to folder_open for Excel-like icon
                   label: 'Add Cattle from Excel',
                 ),
-                _buildPopupMenuItem(
+                PopupMenuItemWidget(
                   value: 'Add Bulk Events',
                   icon: Icons.calendar_today,
                   label: 'Add Bulk Events',
                 ),
-                _buildPopupMenuItem(
+                PopupMenuItemWidget(
                   value: 'Cattle List Report',
                   icon: Icons.assignment,
                   label: 'Cattle List Report',
                 ),
-                _buildPopupMenuItem(
+                PopupMenuItemWidget(
                   value: 'Delete',
                   icon: Icons.delete,
                   label: 'Delete',
@@ -183,7 +183,6 @@ class CattleListView extends RapidView<CattleListLogic> {
   }
 
 
-  // Helper function to build a sorting menu item
   PopupMenuItem<String> _buildSortingMenuItem({
     required String label,
     required String valueAsc,
@@ -214,7 +213,7 @@ class CattleListView extends RapidView<CattleListLogic> {
     );
   }
   // Helper function to build PopupMenuItem with icon and text
-  PopupMenuItem<String> _buildPopupMenuItem({
+  PopupMenuItem<String> PopupMenuItemWidget({
     required String value,
     required IconData icon,
     required String label,
@@ -251,15 +250,19 @@ class CattleListView extends RapidView<CattleListLogic> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Cattle Image
-              Container(
-                width: 100,
-                height: 80,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  image: DecorationImage(
-                    image: CachedNetworkImageProvider(imageUrl),
-                    fit: BoxFit.cover,
+              ClipRRect(
+                borderRadius: BorderRadius.circular(12.0),
+                child: Container(
+                  width: 100,
+                  height: 75,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    // image: DecorationImage(
+                    //   image: CachedNetworkImageProvider(imageUrl),
+                    //   fit: BoxFit.cover,
+                    // ),
                   ),
+                  child: Image.asset('assets/cow.png', width: 100, height: 80,fit: BoxFit.cover,),
                 ),
               ),
               const SizedBox(width: 12),
@@ -268,10 +271,12 @@ class CattleListView extends RapidView<CattleListLogic> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Icon(Icons.pets, size: 18, color: Colors.grey),
+                    Image.asset('assets/ic_cattle.png', width: 28, color: Colors.grey,),
+                    //const Icon(Icons.pets, size: 18, color: Colors.grey),
                     Row(
                       children: [
-                        const Icon(Icons.pets, size: 16, color: Colors.grey),
+                        //Image.asset('assets/ic_cattle.png', width: 20, color: Colors.grey,),
+                        const Icon(Icons.tag, size: 16, color: Colors.grey),
                         const SizedBox(width: 4),
                         Text(
                           cattleId,

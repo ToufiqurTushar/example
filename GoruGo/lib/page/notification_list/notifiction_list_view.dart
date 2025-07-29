@@ -186,84 +186,6 @@ class NotifictionListView extends RapidView<NotifictionListLogic> {
     );
   }
 
-
-  Widget NotifictionListItem({
-    required String imageUrl,
-    required String notifictionId,
-    required String statusText,
-    required Color statusColor,
-  }) {
-    return InkWell(
-      onTap: (){
-
-      },
-      child: Card(
-        color: Colors.white ,
-        elevation: 2,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-        child: Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // Notifiction Image
-              Container(
-                width: 100,
-                height: 80,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  image: DecorationImage(
-                    image: CachedNetworkImageProvider(imageUrl),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-              const SizedBox(width: 12),
-              // Notifiction Info
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Icon(Icons.pets, size: 18, color: Colors.grey),
-                    Row(
-                      children: [
-                        const Icon(Icons.pets, size: 16, color: Colors.grey),
-                        const SizedBox(width: 4),
-                        Text(
-                          notifictionId,
-                          style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 14,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 4),
-                    Text(
-                      statusText,
-                      style: TextStyle(
-                        color: statusColor,
-                        fontSize: 11,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              // Right-side icons
-              Column(
-                children: [
-                  const Icon(Icons.notifications_none, size: 20, color: Colors.grey),
-                  const SizedBox(height: 4),
-                  Icon(Icons.edit_note, size: 20, color: Colors.grey[700]),
-                ],
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
   @override
   void loadDependentLogics() {
     Get.lazyPut<NotifictionListLogic>(() => NotifictionListLogic());
@@ -419,7 +341,7 @@ class NotifictionListView extends RapidView<NotifictionListLogic> {
               ),
               child: isNotification
                   ? Icon(icon, size: 30, color: Colors.grey[700])
-                  : const Icon(Icons.pets, size: 30, color: Colors.white), // Cow icon for task
+                  : Image.asset('assets/ic_cattle.png', width: 20, color: Colors.white,), // Cow icon for task
             ),
             const SizedBox(width: 12),
             // Title, Subtitle, Cattle ID

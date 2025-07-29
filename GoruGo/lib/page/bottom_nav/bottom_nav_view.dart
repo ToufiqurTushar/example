@@ -24,8 +24,11 @@ class BottomNavView extends RapidView<BottomNavLogic> {
       ),
       BottomNavItem(
         routeName: CattleListView.routeName,
-        icon: const Icon(Icons.pets, color: Colors.white,),
-        activeIcon: Icon(Icons.pets, color: Theme.of(Get.context!).primaryColor,),
+        icon: Image.asset('assets/ic_cattle.png', color: Colors.white),
+        activeIcon: Padding(
+          padding: const EdgeInsets.all(18.0),
+          child: Image.asset('assets/ic_cattle.png', color: Theme.of(Get.context!).primaryColor),
+        ),
         label: 'Cattle',
         enableBackInNav:true,
       ),

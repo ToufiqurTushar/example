@@ -1,14 +1,11 @@
 import 'package:cowmaster/layouts/sizebox_widgets.dart';
-import 'package:cowmaster/layouts/text_widgets.dart';
 import 'package:flutter_rapid/flutter_rapid.dart';
 import '../../layouts/custom_drawer.dart';
 import '../../layouts/header_widget.dart';
-import '../../layouts/tile.dart';
 import '../bottom_nav/bottom_nav_logic.dart';
 import '../profile/profile_view.dart';
 import 'home_i18n.dart';
 import 'home_logic.dart';
-import 'nview/dashboard_item.dart';
 
 class HomeView extends RapidView<HomeLogic> {
   static String routeName = "/home";
@@ -229,7 +226,8 @@ class HomeView extends RapidView<HomeLogic> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(item['icon'], size: 30, color: Colors.black),
+          Image.asset('assets/ic_cattle.png', width: 40,),
+          //Icon(item['icon'], size: 30, color: Colors.black),
           SizedBox(height: 8),
           Text(item['label'], style: TextStyle(fontSize: 16)),
           SizedBox(height: 4),
@@ -268,7 +266,8 @@ class HomeView extends RapidView<HomeLogic> {
       padding: EdgeInsets.symmetric(vertical: 30, horizontal: 8),
       child: Row(
         children: [
-          Icon(item['icon'], size: 22),
+          Image.asset('assets/ic_cattle.png', width: 36,),
+          //Icon(item['icon'], size: 22),
           SizedBox(width: 8),
           Expanded(child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

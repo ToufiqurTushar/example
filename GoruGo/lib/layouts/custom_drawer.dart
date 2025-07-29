@@ -1,4 +1,6 @@
+import 'package:cowmaster/page/settings/setting_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rapid/flutter_rapid.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({
@@ -16,7 +18,7 @@ class AppDrawer extends StatelessWidget {
               color: Theme.of(context).primaryColor,
             ),
             child: Text(
-              'Cattle Menu',
+              'GoruGo',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 24,
@@ -24,12 +26,9 @@ class AppDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: Icon(Icons.home),
-            title: Text('Home'),
-          ),
-          ListTile(
             leading: Icon(Icons.settings),
             title: Text('Settings'),
+            onTap: ()=>Get.toNamed(SettingView.routeName),
           ),
         ],
       ),
