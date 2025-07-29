@@ -1,7 +1,8 @@
 import 'package:flutter_rapid/flutter_rapid.dart';
-import '../cattle/cattle_view.dart';
+import '../cattle_list/cattle_list_view.dart';
 import '../home/home_view.dart';
-import '../profile/profile_view.dart';
+import '../notification_list/notifiction_list_view.dart';
+import '../report_list/report_list_view.dart';
 import 'bottom_nav_i18n.dart';
 import 'bottom_nav_logic.dart';
 
@@ -22,21 +23,21 @@ class BottomNavView extends RapidView<BottomNavLogic> {
         enableBackInNav:true,
       ),
       BottomNavItem(
-        routeName: CattleView.routeName,
+        routeName: CattleListView.routeName,
         icon: const Icon(Icons.pets, color: Colors.white,),
         activeIcon: Icon(Icons.pets, color: Theme.of(Get.context!).primaryColor,),
         label: 'Cattle',
         enableBackInNav:true,
       ),
       BottomNavItem(
-        routeName: HomeView.routeName,
+        routeName: NotifictionListView.routeName,
         icon: const Icon(Icons.notifications, color: Colors.white,),
         activeIcon: Icon(Icons.notifications, color:  Theme.of(Get.context!).primaryColor,),
         label: 'Notification',
         enableBackInNav:true,
       ),
       BottomNavItem(
-        routeName: HomeView.routeName,
+        routeName: ReportListView.routeName,
         icon: const Icon(Icons.assignment, color: Colors.white,),
         activeIcon: Icon(Icons.assignment, color:  Theme.of(Get.context!).primaryColor,),
         label: 'Reports',

@@ -4,6 +4,7 @@ import '../../config/app_config.dart';
 
 class HomeLogic extends RapidStartLogic {
   AppBaseConfig config = Get.find();
+  GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   var name = "".obs;
   final List<Map<String, dynamic>> cattleInfo = [
     {"label": "Cows", "count": "20", "color": Color(0xffffbc6f), "icon": Icons.pets},

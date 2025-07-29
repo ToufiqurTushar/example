@@ -20,7 +20,6 @@ class EditProfileLogic extends RapidStartLogic {
   }
 
   void formSubmit() {
-    globalState.toggleThemeMode();
     final data = formController.data();
     if (!formKey.currentState!.validate()) {
       formValidateMode.value = AutovalidateMode.always;

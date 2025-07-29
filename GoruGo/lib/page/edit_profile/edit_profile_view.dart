@@ -149,10 +149,12 @@ class EditProfileView extends RapidView<EditProfileLogic> {
                   children: [
                     TextFormField(
                       style: const TextStyle(
-                        color: Colors.white,
+                        fontSize: 0,
                       ),
                       decoration: const InputDecoration(
                         border: InputBorder.none,
+                        contentPadding: EdgeInsets.symmetric(vertical: 26),
+                        alignLabelWithHint: false,
                       ),
                       controller: controller.formController['gender'],
                       validator: [

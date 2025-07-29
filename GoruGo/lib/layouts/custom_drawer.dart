@@ -10,10 +10,10 @@ class AppDrawer extends StatelessWidget {
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
-        children: const <Widget>[
+        children: [
           DrawerHeader(
             decoration: BoxDecoration(
-              color: Color(0xFF2E4032),
+              color: Theme.of(context).primaryColor,
             ),
             child: Text(
               'Cattle Menu',

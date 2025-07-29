@@ -40,7 +40,7 @@ class HeaderWidget extends StatelessWidget {
             children: [
               Container(
                 width: double.infinity,
-                padding: headerMargin??EdgeInsets.symmetric(vertical: 8),
+                padding: headerMargin??EdgeInsets.all(4),
                 child: title==null?Container():Container(
                   decoration: BoxDecoration(
                     color: headerBackgroundColor??Colors.white,

@@ -56,6 +56,7 @@ ThemeData customLightTheme = ThemeData(
   ),
   inputDecorationTheme: InputDecorationTheme(
     filled: true,
+    isDense: true,
     fillColor: Colors.white,
     labelStyle: TextStyle(color: Colors.grey[400]),
     hintStyle: TextStyle(color: Colors.grey[600]),
@@ -67,23 +68,23 @@ ThemeData customLightTheme = ThemeData(
     suffixIconColor: Colors.grey[500],
     enabledBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(20),
-      borderSide: BorderSide(width: 1, color: Colors.green),
+      borderSide: BorderSide(width: 0.5, color: Colors.green),
     ),
     focusedBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(20),
-      borderSide: BorderSide(width: 1, color: Colors.green),
+      borderSide: BorderSide(width: 0.5, color: Colors.green),
     ),
     errorBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(20),
-      borderSide: BorderSide(width: 1, color: Colors.red),
+      borderSide: BorderSide(width: 0.5, color: Colors.red),
     ),
     focusedErrorBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(20),
-      borderSide: BorderSide(width: 1, color: Colors.green),
+      borderSide: BorderSide(width: 0.5, color: Colors.green),
     ),
     disabledBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(20),
-      borderSide: BorderSide(width: 1, color: Colors.grey),
+      borderSide: BorderSide(width: 0.5, color: Colors.grey),
     ),
   ),
   checkboxTheme: CheckboxThemeData(
@@ -112,6 +113,7 @@ ThemeData customDarkTheme = customLightTheme.copyWith(
   visualDensity: VisualDensity.adaptivePlatformDensity,
   focusColor: Colors.white,
   inputDecorationTheme: InputDecorationTheme(
+    isDense: true,
     hintStyle: TextStyle(color: Colors.white),
     prefixIconColor: Colors.grey[300],
     suffixIconColor: Colors.grey[300],
@@ -125,23 +127,23 @@ ThemeData customDarkTheme = customLightTheme.copyWith(
     ),
     enabledBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(20),
-      borderSide: BorderSide(width: 1, color: Colors.grey),
+      borderSide: BorderSide(width: 0.5, color: Colors.grey),
     ),
     focusedBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(20),
-      borderSide: BorderSide(width: 1, color: Colors.grey),
+      borderSide: BorderSide(width: 0.5, color: Colors.grey),
     ),
     errorBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(20),
-      borderSide: BorderSide(width: 1, color: Colors.red),
+      borderSide: BorderSide(width: 0.5, color: Colors.red),
     ),
     focusedErrorBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(20),
-      borderSide: BorderSide(width: 1, color: Colors.grey),
+      borderSide: BorderSide(width: 0.5, color: Colors.grey),
     ),
     disabledBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(20),
-      borderSide: BorderSide(width: 1, color: Colors.grey),
+      borderSide: BorderSide(width: 0.5, color: Colors.grey),
     ),
   ),
   appBarTheme: AppBarTheme(

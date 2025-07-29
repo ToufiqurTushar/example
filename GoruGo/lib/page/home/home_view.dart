@@ -32,9 +32,9 @@ class HomeView extends RapidView<HomeLogic> {
 
   @override
   Widget build(BuildContext context) {
-    GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+    controller.scaffoldKey = GlobalKey<ScaffoldState>();
     return Scaffold(
-      key: scaffoldKey,
+      key: controller.scaffoldKey,
       appBar: AppBar(
         title: const Text("GoruGo"),
         actions: [
@@ -50,11 +50,11 @@ class HomeView extends RapidView<HomeLogic> {
       drawer: const AppDrawer(),
       onDrawerChanged: (bool isOpened){
         Get.find<BottomNavLogic>().isDrawerOpen = isOpened;
-        Get.find<BottomNavLogic>().scaffoldKey = scaffoldKey;
+        Get.find<BottomNavLogic>().scaffoldKey = controller.scaffoldKey;
       },
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 12),
+          padding: const EdgeInsets.symmetric(horizontal: 8),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -63,7 +63,7 @@ class HomeView extends RapidView<HomeLogic> {
                 title: "Number of Cows",
                 headerTextcolor: Colors.black,
                 isCentered: true,
-                contentMargin: EdgeInsets.only(bottom: 8),
+                contentMargin: EdgeInsets.only(bottom: 8, left: 4, right: 4),
                 child: Column(
                   children: [
                     Row(
@@ -91,16 +91,16 @@ class HomeView extends RapidView<HomeLogic> {
               SmallSpacer(),
               Row(
                 children: [
-                  Expanded(child: BorderedButton("Disposed", (){})),
+                  Expanded(child: BorderedButton(context, "Disposed", (){})),
                   SizedBox(width: 8,),
-                  Expanded(child: BorderedButton("Dead", (){})),
+                  Expanded(child: BorderedButton(context,"Dead", (){})),
                 ],
               ),
               SmallSpacer(),
               HeaderWidget(
                 title: "Summary",
                 headerBackgroundColor: Color(0xff3e3f54),
-                contentMargin: EdgeInsets.only(bottom: 8),
+                contentMargin: EdgeInsets.only(bottom: 8, left: 4, right: 4),
                 isCentered: true,
                 child: IntrinsicHeight(
                   child: Row(
@@ -110,11 +110,11 @@ class HomeView extends RapidView<HomeLogic> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Container(width:double.infinity, child: BorderedButton("Inseminated", () {})),
+                            Container(width:double.infinity, child: BlackBorderedButton(context,"Inseminated", () {})),
                             SizedBox(height: 8),
-                            Container(width:double.infinity, child: BorderedButton("Fresh", () {})),
+                            Container(width:double.infinity, child: BlackBorderedButton(context,"Fresh", () {})),
                             SizedBox(height: 8),
-                            Container(width:double.infinity, child: BorderedButton("Open", () {})),
+                            Container(width:double.infinity, child: BlackBorderedButton(context,"Open", () {})),
                           ],
                         ),
                       ),
@@ -142,11 +142,12 @@ class HomeView extends RapidView<HomeLogic> {
                   ),
                 ),
               ),
+              XSmallSpacer(),
               HeaderWidget(
                 title: "Income/ Expenses",
                 headerBackgroundColor: Color(0xff3e3f54),
                 isCentered: true,
-                contentMargin: EdgeInsets.only(bottom: 8),
+                contentMargin: EdgeInsets.only(bottom: 8, left: 4, right: 4),
                 child: Row(
                   children: [
                     Expanded(child: IncomeCard("Incomes", "৳ 0.00", "Receivables: ৳ 0.00")),
@@ -169,12 +170,12 @@ class HomeView extends RapidView<HomeLogic> {
                   ],
                 ),
               ),
-
+              XSmallSpacer(),
               HeaderWidget(
                 title: "Events/ Notifications",
                 headerBackgroundColor: Color(0xff3e3f54),
                 isCentered: true,
-                contentMargin: EdgeInsets.only(bottom: 8),
+                contentMargin: EdgeInsets.only(bottom: 8, left: 4, right: 4),
                 child: Row(
                   children: [
                     Expanded(child: EventCard("Latest Events", "৳ 0.00", "Receivables: ৳ 0.00")),
@@ -183,11 +184,12 @@ class HomeView extends RapidView<HomeLogic> {
                   ],
                 ),
               ),
+              XSmallSpacer(),
               HeaderWidget(
                 title: "Milk (lt)",
                 headerBackgroundColor: Color(0xff3e3f54),
                 isCentered: true,
-                contentMargin: EdgeInsets.only(bottom: 8),
+                contentMargin: EdgeInsets.only(bottom: 8, left: 4, right: 4),
                 child: Row(
                   children: [
                     Expanded(child: EventCard("Annual DIM", "৳ 0.00", "Receivables: ৳ 0.00")),
@@ -196,6 +198,7 @@ class HomeView extends RapidView<HomeLogic> {
                   ],
                 ),
               ),
+              XSmallSpacer(),
               HeaderWidget(
                 title: "Rations/ Stock",
                 headerBackgroundColor: Color(0xff3e3f54),
@@ -236,14 +239,24 @@ class HomeView extends RapidView<HomeLogic> {
     );
   }
 
-  Widget BorderedButton(String label, VoidCallback? onTap) {
+  Widget BorderedButton(context, String label, VoidCallback? onTap) {
+    return OutlinedButton(onPressed: onTap,style: OutlinedButton.styleFrom(
+      side: BorderSide(color: Theme.of(context).focusColor, width: 1), // 👈 border color
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8), // 👈 rounded corners
+      ),
+      padding: EdgeInsets.symmetric(horizontal: 0, vertical: 12),
+    ), child: Text(label, style: TextStyle(color: Theme.of(context).focusColor),));
+  }
+
+  Widget BlackBorderedButton(context, String label, VoidCallback? onTap) {
     return OutlinedButton(onPressed: onTap,style: OutlinedButton.styleFrom(
       side: BorderSide(color: Colors.black, width: 1), // 👈 border color
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8), // 👈 rounded corners
       ),
       padding: EdgeInsets.symmetric(horizontal: 0, vertical: 12),
-    ), child: Text(label, style: TextStyle(color: Colors.black),));
+    ), child: Text(label, style: TextStyle(color: Colors.black)));
   }
 
   Widget SummaryCard(Map<String, dynamic> item) {
