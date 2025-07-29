@@ -33,7 +33,7 @@ class ReportListView extends RapidView<ReportListLogic> {
           child: Column(
             children: [
               if(controller.reportData.isEmpty)
-              NoReportWidget(),
+              NoReportWidget(context),
               Expanded(
                 child: ListView.separated( // Changed to ListView.separated
                   // padding: const EdgeInsets.all(16.0),
@@ -49,7 +49,7 @@ class ReportListView extends RapidView<ReportListLogic> {
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                       child: ListTile(
                         leading: Icon(Icons.featured_play_list_outlined),
-                        title: Text(report['statusText']),
+                        title: Text(report['statusText'], style: TextStyle(color: Colors.black),),
                       ),
                     );
                   },
@@ -79,7 +79,7 @@ class ReportListView extends RapidView<ReportListLogic> {
 
 
 
-  Widget NoReportWidget() {
+  Widget NoReportWidget(context) {
     if(controller.isLoading.value)
     return SizedBox.shrink();
     return Expanded(
@@ -100,8 +100,7 @@ class ReportListView extends RapidView<ReportListLogic> {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 16,
-                  color: Colors.grey[700],
-                  height: 1.5, // Line height for better readability
+                  color: Theme.of(context).focusColor,
                 ),
               ),
             ],
